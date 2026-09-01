@@ -1,0 +1,12 @@
+name: keep-awake
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -sSfL --max-time 60 https://credit-ratios.streamlit.app > /dev/null
